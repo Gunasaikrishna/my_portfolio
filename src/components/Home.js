@@ -574,14 +574,14 @@ const expertiseData = [
   </div>
 
   {/* Form */}
-  {/* <input type="text" placeholder="Name" className="input-field" />
+  <input type="text" placeholder="Name" className="input-field" />
   <input type="number" placeholder="Enter Mobile No" className="input-field" />
   <textarea
     placeholder="Message"
     className="input-field message-field"
   ></textarea>
 
-  <button className="send-button">Send Message</button> */}
+  <button className="send-button">Send Message</button>
 </div>
 
     </div>
