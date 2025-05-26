@@ -1,6 +1,6 @@
 import React from "react";
 import "./Home.css";
-import devImage from "../assets/Sasi photo.jpg";
+import devImage from "../assets/profilesk2.jpeg";
 import GoogleMap from "../assets/googleMap.jpeg";
 import Employee from "../assets/employe.jpeg";
 import Parent from "../assets/parent.jpeg";
@@ -23,14 +23,12 @@ import {
   SiTypescript,
   SiJavascript,
   SiSpringboot,
-  SiJava,
   SiPython,
   SiMysql,
   SiReact,
   SiHtml5,
   SiCss3
 } from "react-icons/si";
-import { FaPaintBrush } from "react-icons/fa";
 
 const Home = () => {
   useEffect(() => {
@@ -93,7 +91,7 @@ const expertiseData = [
     <div className="overallDiv">
       <div className="container">
         <div className="left-section">
-          <p className="gradient-text">Hello, I'm Developer</p>
+          <p className="gradient-text">Hello, I'm AgsaiKrishna Jr Developer</p>
           <p className="web-mobile-dev">
             Web and Mobile Developer (Android \ ios)
           </p>
@@ -574,14 +572,14 @@ const expertiseData = [
   </div>
 
   {/* Form */}
-  <input type="text" placeholder="Name" className="input-field" />
+  {/* <input type="text" placeholder="Name" className="input-field" />
   <input type="number" placeholder="Enter Mobile No" className="input-field" />
   <textarea
     placeholder="Message"
     className="input-field message-field"
   ></textarea>
 
-  <button className="send-button">Send Message</button>
+  <button className="send-button">Send Message</button> */}
 </div>
 
     </div>

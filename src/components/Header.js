@@ -46,16 +46,27 @@ function Header({ tabs, activeTab, onTabClick }) {
 
       
       <div className="flex gap-3">
-        {[FaLinkedinIn, FaGithub, FaInstagram].map((Icon, i) => (
-          <a
-            key={i}
-            href="#"
-            className="bg-gray-100 text-black rounded-full p-2 w-8 h-8 flex items-center justify-center hover:scale-105 transition-transform"
-          >
-            <Icon size={16} />
-          </a>
-        ))}
-      </div>
+  {[FaLinkedinIn, FaGithub, FaInstagram].map((Icon, i) => {
+    const urls = [
+      "https://www.linkedin.com/in/your-linkedin-id", // Replace with your LinkedIn URL
+      "https://github.com/Gunasaikrishna",             // GitHub URL
+      "https://www.instagram.com/your-instagram-id"    // Replace with your Instagram URL
+    ];
+
+    return (
+      <a
+        key={i}
+        href={urls[i]}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="bg-gray-100 text-black rounded-full p-2 w-8 h-8 flex items-center justify-center hover:scale-105 transition-transform"
+      >
+        <Icon size={16} />
+      </a>
+    );
+  })}
+</div>
+
     </header>
   );
 }

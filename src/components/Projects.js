@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import './Projects.css';
-import webImage from '../assets/Iscripts.png';
 import GoogleMap from '../assets/googleMap.jpeg';
 import Qr from '../assets/qr.jpeg';
 import Employee from '../assets/employe.jpeg';

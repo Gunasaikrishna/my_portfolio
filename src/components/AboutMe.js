@@ -1,7 +1,7 @@
 // src/components/About.js
 import React from 'react';
 import './AboutMe.css'; 
-import devImage from '../assets/Sasi photo.jpg'; 
+import devImage from '../assets/profilesk3.jpeg'; 
 
 function AboutMe() {
   return (
@@ -9,8 +9,7 @@ function AboutMe() {
       <div className="projectsView">
         <p className="ProjectsText">About Me</p>
         <p className="summary">
-          I graduated from the Centro Universitário Leonardo Da Vinci (UNIASSELVI) with a degree in Analysis and Systems Development. This academic foundation has provided me with a solid understanding of software development principles and best practices.
-        </p>
+        I graduated from Sri Vani Institute  with a Bachelor of Technology (B.Tech) in Electrical and Electronics Engineering (EEE). This academic background has equipped me with a strong foundation in engineering principles, problem-solving, and analytical thinking, which I effectively apply to software development and system design.          </p>
       </div>
 
       <div className="container">
@@ -20,7 +19,7 @@ function AboutMe() {
 
         <div className="left-section">
           <p className="line3">
-            Hi there! I'm **Sashi**, a passionate full-stack developer with a strong background in frontend and mobile app development. Let me introduce myself and tell you more about my journey in tech.
+            Hi there! I'm **SaiKrishna**, a passionate full-stack developer with a strong background in frontend and mobile app development. Let me introduce myself and tell you more about my journey in tech.
 
             I am from India, where I cultivated a deep interest in software and systems from a young age. My fascination with building interactive applications led me to pursue a career in development.
 
@@ -36,8 +35,7 @@ function AboutMe() {
             <p className="eductionText">Eduction and Skills</p>
           </div>
           <p className="summary">
-            I graduated from the Centro Universitário Leonardo Da Vinci (UNIASSELVI) with a degree in Analysis and Systems Development. This provided me with a strong theoretical and practical foundation in modern software development.
-          </p>
+          I graduated from Sri Vani Institute with a Bachelor of Technology (B.Tech) in Electrical and Electronics Engineering (EEE). This academic background has equipped me with a strong foundation in engineering principles, problem-solving, and analytical thinking, which I effectively apply to software development and system design.          </p>
         </div>
 
         <div className='left'>

@@ -4,7 +4,6 @@ import {
   SiTypescript,
   SiJavascript,
   SiSpringboot,
-  SiJava,
   SiPython,
   SiMysql,
   SiReact,
