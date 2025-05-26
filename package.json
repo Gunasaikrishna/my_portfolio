@@ -2,7 +2,7 @@
   "name": "my-portfolio-web",
   "version": "0.1.0",
   "private": true,
-  "homepage":"https://gunasaikrishna.github.io/my_portfolio"
+  "homepage":"https://gunasaikrishna.github.io/my_portfolio",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
