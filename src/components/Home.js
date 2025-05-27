@@ -23,6 +23,7 @@ import {
   SiTypescript,
   SiJavascript,
   SiSpringboot,
+  SiKotlin,
   SiPython,
   SiMysql,
   SiReact,
@@ -115,7 +116,8 @@ const expertiseData = [
        
       </div>
       <div style={{ display: 'flex', gap: '20px', marginTop: '20px' }}>
-      <button
+      <a
+  href={process.env.PUBLIC_URL + '/Skresume.pdf'} target="_blank" rel="noopener noreferrer"
   style={{
     padding: '10px 20px',
     backgroundImage: 'linear-gradient(90deg, #a78bfa, #06b6d4)',
@@ -123,16 +125,19 @@ const expertiseData = [
     border: 'none',
     borderRadius: '25px',
     cursor: 'pointer',
-    display: 'flex',
+    display: 'inline-flex',
     alignItems: 'center',
-    gap: '20px',  // Increased gap here
+    gap: '20px',
     fontSize: '16px',
     marginLeft: 100,
+    textDecoration: 'none',    // remove underline
   }}
-  onClick={() => window.open('/Skresume.pdf', '_blank')}
 >
   👁️ View Resume
-</button>
+</a>
+
+
+
 
 
   <button
@@ -419,10 +424,9 @@ const expertiseData = [
         <div className="techContainer">
           <div className="techCard">
           <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginTop: 20, marginBottom: 10 }}>
-          {/* <SiSpringboot style={{ color: '#61DAFB', marginRight: 8, width: 30, height: 30 }} /> */}
+          <SiKotlin style={{ color: '#7F52FF', marginRight: 8, width: 30, height: 30 }} />
 
-
-            <p className="techTitle">Java
+            <p className="techTitle">Java/Kotlin
             </p>
             </div>
             <p className="techDesc">
@@ -543,6 +547,26 @@ const expertiseData = [
           <div className="techItem">
             <div className="circleDot"></div>
             <p>FireBase Console</p>
+          </div>
+        </div>
+        <div className="techContainer">
+          <div className="techItem">
+            <div className="circleDot"></div>
+            <p>PlayStore</p>
+          </div>
+
+          <div className="techItem">
+            <div className="circleDot"></div>
+            <p>App Store</p>
+          </div>
+
+          <div className="techItem">
+            <div className="circleDot"></div>
+            <p>Figma</p>
+          </div>
+          <div className="techItem">
+            <div className="circleDot"></div>
+            <p>Redux</p>
           </div>
         </div>
       </div>

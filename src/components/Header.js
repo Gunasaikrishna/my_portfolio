@@ -11,7 +11,7 @@ function Header({ tabs, activeTab, onTabClick }) {
         <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">&lt;/&gt;</span>
         <span
   style={{
-    background: "linear-gradient(90deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8f00ff)",
+    background: "linear-gradient(90deg, #ff0000, #ff7f00, #ffff00, #00ff00, #fff, #fff, #fff)",
     WebkitBackgroundClip: "text",
     WebkitTextFillColor: "transparent",
     fontWeight: "bold"
