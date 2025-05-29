@@ -92,12 +92,13 @@ const expertiseData = [
     <div className="overallDiv">
       <div className="container">
         <div className="left-section">
-          <p className="gradient-text">Hello, I'm AgsaiKrishna Jr Developer</p>
+          <p className="gradient-text">Hi, I’m Guna Sai Krishna - React Native Developer</p>
           <p className="web-mobile-dev">
-            Web and Mobile Developer (Android \ ios)
+          <p>Welcome to my portfolio --- 😊 Specialize in React Native, React JS, and building mobile/web apps.</p>
+
           </p>
           <p className="line3">
-            Turning Ideas into Digital Reality: SK, a Full Stack Developer
+            Turning Ideas into Digital Reality: SaiKrishna, a Full Stack Developer
             passionate about building robust backend systems and crafting
             elegant, functional user interfaces. Skilled in both frontend and
             backend technologies, I deliver seamless, high-performance web and
