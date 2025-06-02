@@ -38,9 +38,7 @@ function App() {
 </main>
 
       <Footer 
-         tabs={TABS} 
-         activeTab={activeTab} 
-         onTabClick={setActiveTab}  /> {/* ✅ Place Footer at the bottom */}
+           /> {/* ✅ Place Footer at the bottom */}
     </div>
   );
 }

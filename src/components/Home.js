@@ -88,34 +88,71 @@ const expertiseData = [
     icon: faCogs,
   },
 ];
+
+const projects = [
+  {
+    title: "SC Employee App",
+    summary:
+      "An all-in-one mobile solution designed for college management. This app enables employees to check daily student attendance, track employee presence, manage new admissions, and monitor campus cleaning tasks. Built with React Native for Android, it streamlines daily operations and enhances staff productivity within the institution.",
+    skills: "Android, React Native(ios)",
+    liveLink:
+      "https://play.google.com/store/apps/details?id=apps.srichaitanya.employee&pcampaignid=web_share",
+    githubLink: null,
+    image: Employee,
+    borderClass: "border-purple",
+  },
+  {
+    title: "SC Parent App",
+    summary:
+      "A dedicated mobile app for parents to stay connected with their child’s academic journey. It provides real-time access to student data including attendance, marks, performance reports, fee details, and more. Designed with React Native for Android, the app ensures transparent communication between parents and the institution.",
+    skills: "Android, React Native(ios)",
+    liveLink:
+      "https://play.google.com/store/apps/details?id=com.srichaitanya.parent&pcampaignid=web_share",
+    githubLink: null,
+    image: Parent,
+    borderClass: "border-purple",
+  },
+  {
+    title: "Google Map Directions",
+    summary:
+      "A smart location-based tool that uses the Google Maps API to provide real-time directions and calculate the distance between two points. It supports route visualization, travel time estimation, and multiple travel modes like driving, walking, or transit.",
+    skills: "Android, React Native(ios)",
+    liveLink: null,
+    githubLink: "https://github.com/Gunasaikrishna/GoogleMapLive.git",
+    image: GoogleMap,
+    borderClass: "border-green",
+  },
+];
+
   return (
     <div className="overallDiv">
-      <div className="container">
-        <div className="left-section">
-          <p className="gradient-text">Hi, I’m Guna Sai Krishna - React Native Developer</p>
-          <p className="web-mobile-dev">
-          <p>Welcome to my portfolio --- 😊 Specialize in React Native, React JS, and building mobile/web apps.</p>
+     <div className="container">
+  <div className="left-section">
+    <p className="gradient-text">Hi, I’m Guna Sai Krishna - React Native Developer</p>
 
-          </p>
-          <p className="line3">
-            Turning Ideas into Digital Reality: SaiKrishna, a Full Stack Developer
-            passionate about building robust backend systems and crafting
-            elegant, functional user interfaces. Skilled in both frontend and
-            backend technologies, I deliver seamless, high-performance web and
-            mobile solutions that provide exceptional user experiences from end
-            to end.{" "}
-          </p>
-        </div>
+    <p className="web-mobile-dev">
+      Welcome to my portfolio --- 😊 Specialize in React Native, React JS, and building mobile/web apps.
+    </p>
 
-        <div className="right-section">
-          <img
-            src={devImage}
-            alt="Animated Developer"
-            className="animated-photo"
-          />
-        </div>
-       
-      </div>
+    <p className="line3">
+      Turning Ideas into Digital Reality: SaiKrishna, a Full Stack Developer
+      passionate about building robust backend systems and crafting
+      elegant, functional user interfaces. Skilled in both frontend and
+      backend technologies, I deliver seamless, high-performance web and
+      mobile solutions that provide exceptional user experiences from end
+      to end.
+    </p>
+  </div>
+
+  <div className="right-section">
+    <img
+      src={devImage}
+      alt="Animated Developer"
+      className="animated-photo"
+    />
+  </div>
+</div>
+
       <div style={{ display: 'flex', gap: '20px', marginTop: '20px' }}>
       <a
   href={process.env.PUBLIC_URL + '/Skresume.pdf'} target="_blank" rel="noopener noreferrer"
@@ -202,102 +239,45 @@ const expertiseData = [
 
         <p className="MobileText">Mobile Projects</p>
         <div className="NoofprojectsView1">
-          <div className="project-card1 border-purple">
-            <div className="cardContent">
-              <img
-                src={Employee}
-                alt="Animated Developer"
-                className="p1Image"
-              />
+  {projects.map((project, index) => (
+    <div className={`project-card1 ${project.borderClass}`} key={index}>
+      <div className="cardContent">
+        <img src={project.image} alt="Project" className="p1Image" />
 
-              <div className="cardText">
-                <h3 className="projectName">SC Employee App</h3>
-                <p className="projectSummary">
-                  An all-in-one mobile solution designed for college management.
-                  This app enables employees to check daily student attendance,
-                  track employee presence, manage new admissions, and monitor
-                  campus cleaning tasks. Built with React Native for Android, it
-                  streamlines daily operations and enhances staff productivity
-                  within the institution.
-                </p>
-                <p>Skills: Android, React Native(ios)</p>
+        <div className="cardText">
+          <h3 className="projectName">{project.title}</h3>
+          <p className="projectSummary">{project.summary}</p>
+          <p>Skills: {project.skills}</p>
 
-                <div className="buttons">
-                  <a
-                    href="https://play.google.com/store/apps/details?id=apps.srichaitanya.employee&pcampaignid=web_share"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <button className="btn1">Live</button>
-                  </a>
+          <div className="buttons">
+            {project.liveLink && (
+              <a
+                href={project.liveLink}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <button className="btn1">Live</button>
+              </a>
+            )}
 
-                  <button className="btn2">GitHub</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="project-card1 border-purple">
-            <div className="cardContent">
-              <img src={Parent} alt="Animated Developer" className="p1Image" />
-
-              <div className="cardText">
-                <h3 className="projectName">SC Parent App</h3>
-                <p className="projectSummary">
-                  A dedicated mobile app for parents to stay connected with
-                  their child’s academic journey. It provides real-time access
-                  to student data including attendance, marks, performance
-                  reports, fee details, and more. Designed with React Native for
-                  Android, the app ensures transparent communication between
-                  parents and the institution.
-                </p>
-                <p>Skills: Android, React Native(ios)</p>
-
-                <div className="buttons">
-                <a
-                    href="https://play.google.com/store/apps/details?id=com.srichaitanya.parent&pcampaignid=web_share"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <button className="btn1">Live</button>
-                  </a>
-                  <button className="btn2">GitHub</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="project-card1 border-green">
-            <div className="cardContent">
-              <img
-                src={GoogleMap}
-                alt="Animated Developer"
-                className="p1Image"
-              />
-
-              <div className="cardText">
-                <h3 className="projectName">Google Map Directions</h3>
-                <p className="projectSummary">
-                  A smart location-based tool that uses the Google Maps API to
-                  provide real-time directions and calculate the distance
-                  between two points. It supports route visualization, travel
-                  time estimation, and multiple travel modes like driving,
-                  walking, or transit.
-                </p>
-                <p>Skills: Android, React Native(ios)</p>
-                <div className="buttons">
-                  <button className="btn1">Live</button>
-                  <a
-                    href="https://github.com/Gunasaikrishna/GoogleMapLive.git"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                  <button className="btn2">GitHub</button>
-
-                  </a>
-                </div>
-              </div>
-            </div>
+            {project.githubLink ? (
+              <a
+                href={project.githubLink}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <button className="btn2">GitHub</button>
+              </a>
+            ) : (
+              <button className="btn2">GitHub</button>
+            )}
           </div>
         </div>
+      </div>
+    </div>
+  ))}
+</div>
+
 
         <p className="MobileText">Web Projects</p>
         <div className="NoofprojectsView">

@@ -11,7 +11,7 @@ function Footer({ tabs, activeTab, onTabClick }) {
         © {new Date().getFullYear()} Agsk.dev. All rights reserved.
       </p>
       <nav>
-        <ul className="flex gap-20 text-5sm font-bold">
+        {/* <ul className="flex gap-20 text-5sm font-bold">
           {tabs.map(tab => (
             <li key={tab.id} className="relative group">
               <button
@@ -27,7 +27,7 @@ function Footer({ tabs, activeTab, onTabClick }) {
               )}
             </li>
           ))}
-        </ul>
+        </ul> */}
       </nav>
       {/* Right side - social links */}
       <div className="flex gap-3">
