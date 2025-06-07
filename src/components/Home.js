@@ -7,7 +7,7 @@ import Parent from "../assets/parent.jpeg";
 import Chess from "../assets/chess.png";
 import AI from "../assets/AI.png";
 import StudentForm from "../assets/image.png";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCode,
   faMobileAlt,
@@ -15,10 +15,10 @@ import {
   faPalette,
   faLightbulb,
   faCogs,
-} from '@fortawesome/free-solid-svg-icons';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import { useEffect } from 'react';
+} from "@fortawesome/free-solid-svg-icons";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 import {
   SiTypescript,
   SiJavascript,
@@ -28,398 +28,425 @@ import {
   SiMysql,
   SiReact,
   SiHtml5,
-  SiCss3
+  SiCss3,
 } from "react-icons/si";
-import axios from 'axios';
+import axios from "axios";
 
 import { initializeApp } from "firebase/app";
 import { getDatabase, push, ref } from "firebase/database";
 import { firebaseConfig } from "./firebaseConfig";
- 
 
 const Home = () => {
-
-  const [name, setName] = useState('');
-  const [mobile, setMobile] = useState('');
-  const [message, setMessage] = useState('');
+  const [name, setName] = useState("");
+  const [mobile, setMobile] = useState("");
+  const [message, setMessage] = useState("");
   const [showSuccessText, setShowSuccessText] = useState(false); // state to control <p> visibility
-const app = initializeApp(firebaseConfig);
-const db = getDatabase(app);
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase(app);
   useEffect(() => {
     AOS.init({
       duration: 1000,
       once: true, // animation triggers once
     });
   }, []);
-const expertiseData = [
-  {
-    title: 'Full Stack Expertise',
-    description:
-      'Proficient in React Native for front-end and Spring Boot for backend development. Skilled in API integration and building robust end-to-end solutions.',
-      iconColor: '#8e44ad',
-      borderClass: 'border-purple',
-    icon: faCode,
-  },
-  {
-    title: 'Mobile-First Approach',
-    description:
-      'Expert in designing and developing mobile-first applications tailored for both Android and iOS platforms with consistent performance.',
-      iconColor: '#27ae60',
-      borderClass: 'border-green',
-    icon: faMobileAlt,
-  },
-  {
-    title: 'Fast & Scalable',
-    description:
-      'I create fast-loading, scalable applications using modern frameworks and optimized data flow handling for better user experiences.',
-      iconColor: '#2980b9',
-  borderClass: 'border-blue',
-    icon: faRocket,
-  },
-  {
-    title: 'User-Friendly Interface',
-    description:
-      'Strong UI/UX design focus. Build clean, intuitive, and responsive user interfaces that enhance usability and engagement.',
-      iconColor: '#e67e22',
-      borderClass: 'border-purple',
-    icon: faPalette,
-  },
-  {
-    title: 'Problem Solver',
-    description:
-      'Adept at analyzing requirements, troubleshooting issues, and implementing effective solutions for complex problems.',
-      iconColor: '#c0392b',
-      borderClass: 'border-green',
-    icon: faLightbulb,
-  },
-  {
-    title: 'Scalable Solutions',
-    description:
-      'Capable of designing scalable system architectures to accommodate growth and ensure long-term performance and maintainability.',
-      iconColor: '#16a085',
-      borderClass: 'border-blue',
-    icon: faCogs,
-  },
-];
+  const expertiseData = [
+    {
+      title: "Full Stack Expertise",
+      description:
+        "Proficient in React Native for front-end and Spring Boot for backend development. Skilled in API integration and building robust end-to-end solutions.",
+      iconColor: "#8e44ad",
+      borderClass: "border-purple",
+      icon: faCode,
+    },
+    {
+      title: "Mobile-First Approach",
+      description:
+        "Expert in designing and developing mobile-first applications tailored for both Android and iOS platforms with consistent performance.",
+      iconColor: "#27ae60",
+      borderClass: "border-green",
+      icon: faMobileAlt,
+    },
+    {
+      title: "Fast & Scalable",
+      description:
+        "I create fast-loading, scalable applications using modern frameworks and optimized data flow handling for better user experiences.",
+      iconColor: "#2980b9",
+      borderClass: "border-blue",
+      icon: faRocket,
+    },
+    {
+      title: "User-Friendly Interface",
+      description:
+        "Strong UI/UX design focus. Build clean, intuitive, and responsive user interfaces that enhance usability and engagement.",
+      iconColor: "#e67e22",
+      borderClass: "border-purple",
+      icon: faPalette,
+    },
+    {
+      title: "Problem Solver",
+      description:
+        "Adept at analyzing requirements, troubleshooting issues, and implementing effective solutions for complex problems.",
+      iconColor: "#c0392b",
+      borderClass: "border-green",
+      icon: faLightbulb,
+    },
+    {
+      title: "Scalable Solutions",
+      description:
+        "Capable of designing scalable system architectures to accommodate growth and ensure long-term performance and maintainability.",
+      iconColor: "#16a085",
+      borderClass: "border-blue",
+      icon: faCogs,
+    },
+  ];
 
-const projects = [
-  {
-    title: "SC Employee App",
-    summary:
-      "An all-in-one mobile solution designed for college management. This app enables employees to check daily student attendance, track employee presence, manage new admissions, and monitor campus cleaning tasks. Built with React Native for Android, it streamlines daily operations and enhances staff productivity within the institution.",
-    skills: "Android, React Native(ios)",
-    liveLink:
-      "https://play.google.com/store/apps/details?id=apps.srichaitanya.employee&pcampaignid=web_share",
-    githubLink: null,
-    image: Employee,
-    borderClass: "border-purple",
-  },
-  {
-    title: "SC Parent App",
-    summary:
-      "A dedicated mobile app for parents to stay connected with their child’s academic journey. It provides real-time access to student data including attendance, marks, performance reports, fee details, and more. Designed with React Native for Android, the app ensures transparent communication between parents and the institution.",
-    skills: "Android, React Native(ios)",
-    liveLink:
-      "https://play.google.com/store/apps/details?id=com.srichaitanya.parent&pcampaignid=web_share",
-    githubLink: null,
-    image: Parent,
-    borderClass: "border-purple",
-  },
-  {
-    title: "Google Map Directions",
-    summary:
-      "A smart location-based tool that uses the Google Maps API to provide real-time directions and calculate the distance between two points. It supports route visualization, travel time estimation, and multiple travel modes like driving, walking, or transit.",
-    skills: "Android, React Native(ios)",
-    liveLink: null,
-    githubLink: "https://github.com/Gunasaikrishna/GoogleMapLive.git",
-    image: GoogleMap,
-    borderClass: "border-green",
-  },
-];
+  const projects = [
+    {
+      title: "SC Employee App",
+      summary:
+        "An all-in-one mobile solution designed for college management. This app enables employees to check daily student attendance, track employee presence, manage new admissions, and monitor campus cleaning tasks. Built with React Native for Android, it streamlines daily operations and enhances staff productivity within the institution.",
+      skills: "Android, React Native(ios)",
+      liveLink:
+        "https://play.google.com/store/apps/details?id=apps.srichaitanya.employee&pcampaignid=web_share",
+      githubLink: null,
+      image: Employee,
+      borderClass: "border-purple",
+    },
+    {
+      title: "SC Parent App",
+      summary:
+        "A dedicated mobile app for parents to stay connected with their child’s academic journey. It provides real-time access to student data including attendance, marks, performance reports, fee details, and more. Designed with React Native for Android, the app ensures transparent communication between parents and the institution.",
+      skills: "Android, React Native(ios)",
+      liveLink:
+        "https://play.google.com/store/apps/details?id=com.srichaitanya.parent&pcampaignid=web_share",
+      githubLink: null,
+      image: Parent,
+      borderClass: "border-purple",
+    },
+    {
+      title: "Google Map Directions",
+      summary:
+        "A smart location-based tool that uses the Google Maps API to provide real-time directions and calculate the distance between two points. It supports route visualization, travel time estimation, and multiple travel modes like driving, walking, or transit.",
+      skills: "Android, React Native(ios)",
+      liveLink: null,
+      githubLink: "https://github.com/Gunasaikrishna/GoogleMapLive.git",
+      image: GoogleMap,
+      borderClass: "border-green",
+    },
+  ];
+  
+  const handleSend = () => {
+    if (!name.trim() || !mobile.trim() || !message.trim()) {
+      alert("Please fill in all fields.");
+      return;
+    }
+    console.log("  handleSend ");
+    // console.log('Data saved successfully11'); // 
 
-// const handleSend = async () => {
-//   const fullMessage = `Name: ${name}\nMobile: ${mobile}\nMessage: ${message}`;
-
-//   const payload = {
-//     message: fullMessage
-//   };
-
-//   try {
-//     const response = await axios.post(
-//       'https://8n2aepx5c1.execute-api.eu-north-1.amazonaws.com/Send',
-//       payload,
-//       {
-//         headers: {
-//           'Content-Type': 'application/json'
-//         }
-//       }
-//     );
-
-//     console.log("✅ API success:", response.data);
-
-//     setShowSuccessText(true);
-
-//     // Optionally clear the form
-//     setName('');
-//     setMobile('');
-//     setMessage('');
-//   } catch (error) {
-//     console.error("❌ API error:", error.response ? error.response.data : error.message);
-//     setShowSuccessText(false);
-//   }
-// };
-const handleSend = () => {
-
-  if (!name.trim() || !mobile.trim() || !message.trim()) {
-    alert("Please fill in all fields.");
-    return;
-  }
-  console.log("  handleSend ")
-  // console.log('Data saved successfully11'); // <-- check browser console
-
-  push(ref(db, 'submissions/'), {
-    name,
-    mobile,
-    message,
-    timestamp: new Date().toISOString(),
-  })
-    .then(() => {
-      setShowSuccessText(true);
-    console.log('Data saved successfully'); // <-- check browser console
-
-      setName('');
-      setMobile('');
-      setMessage('');
-      setTimeout(() => setShowSuccessText(false), 5000);
+    push(ref(db, "submissions/"), {
+      name,
+      mobile,
+      message,
+      timestamp: new Date().toISOString(),
     })
-    .catch((error) => {
-      console.error('Error sending message:', error);
-    });
-};
+      .then(() => {
+        setShowSuccessText(true);
+        console.log("Data saved successfully"); 
 
+        setName("");
+        setMobile("");
+        setMessage("");
+        setTimeout(() => setShowSuccessText(false), 5000);
+      })
+      .catch((error) => {
+        console.error("Error sending message:", error);
+      });
+  };
 
   return (
     <div className="overallDiv">
-     <div className="container">
-  <div className="left-section">
-    <p className="gradient-text">Hi, I’m Guna Sai Krishna - React Native Developer</p>
+      <div className="container">
+        <div className="left-section">
+          <p className="gradient-text">
+            Hi, I’m Guna Sai Krishna - React Native Developer
+          </p>
 
-    <p className="web-mobile-dev">
-      Welcome to my portfolio --- 😊 Specialize in React Native, React JS, and building mobile/web apps.
-    </p>
+          <p className="web-mobile-dev">
+            Welcome to my portfolio --- 😊 Specialize in React Native, React JS,
+            and building mobile/web apps.
+          </p>
 
-    <p className="line3">
-      Turning Ideas into Digital Reality: SaiKrishna, a Full Stack Developer
-      passionate about building robust backend systems and crafting
-      elegant, functional user interfaces. Skilled in both frontend and
-      backend technologies, I deliver seamless, high-performance web and
-      mobile solutions that provide exceptional user experiences from end
-      to end.
-    </p>
-  </div>
-
-  <div className="right-section">
-    <img
-      src={devImage}
-      alt="Animated Developer"
-      className="animated-photo"
-    />
-  </div>
-</div>
-
-      <div style={{ display: 'flex', gap: '20px', marginTop: '20px' }}>
-      <a
-  href={process.env.PUBLIC_URL + '/Skresume.pdf'} target="_blank" rel="noopener noreferrer"
-  style={{
-    padding: '10px 20px',
-    backgroundImage: 'linear-gradient(90deg, #a78bfa, #06b6d4)',
-    color: '#fff',
-    border: 'none',
-    borderRadius: '25px',
-    cursor: 'pointer',
-    display: 'inline-flex',
-    alignItems: 'center',
-    gap: '20px',
-    fontSize: '16px',
-    marginLeft: 100,
-    textDecoration: 'none',    // remove underline
-  }}
->
-  👁️ View Resume
-</a>
-
-
-
-
-
-  <button
-    style={{
-      padding: '10px 20px',
-      backgroundImage: 'linear-gradient(90deg, #a78bfa, #06b6d4)',
-      color: '#fff',
-      border: 'none',
-      borderRadius: '25px',
-      cursor: 'pointer',
-      display: 'flex',
-      alignItems: 'center',
-      gap: '10px',
-      fontSize: '16px',
-      marginLeft:60,
-    }}
-    onClick={() => {
-      const link = document.createElement('a');
-      link.href = '/Skresume.pdf'; 
-      link.download = 'Resume.pdf'; 
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link); 
-    }}
-  >
-    ⬇️ Download Resume
-  </button>
-</div>
-
-
-<div className="expertise-section single-column">
-  {expertiseData.map((card, index) => (
-    <div
-      key={index}
-      className={`expertise-card ${card.borderClass}`}
-      data-aos={index % 2 === 0 ? 'fade-right' : 'fade-left'}
-    >
-      <div className="icon-wrapper" style={{ color: card.iconColor }}>
-        <FontAwesomeIcon icon={card.icon} size="2x" />
-      </div>
-      <h3 className="expertise-title">{card.title}</h3>
-      {card.image && (
-        <div className="card-image">
-          <img src={card.image} alt={card.title} />
+          <p className="line3">
+            Turning Ideas into Digital Reality: SaiKrishna, a Full Stack
+            Developer passionate about building robust backend systems and
+            crafting elegant, functional user interfaces. Skilled in both
+            frontend and backend technologies, I deliver seamless,
+            high-performance web and mobile solutions that provide exceptional
+            user experiences from end to end.
+          </p>
         </div>
-      )}
-      <p className="expertise-description">{card.description}</p>
-    </div>
-  ))}
-</div>
 
+        <div className="right-section">
+          <img
+            src={devImage}
+            alt="Animated Developer"
+            className="animated-photo"
+          />
+        </div>
+      </div>
 
+      <div style={{ display: "flex", gap: "20px", marginTop: "20px" }}>
+        <a
+          href={process.env.PUBLIC_URL + "/Skresume.pdf"}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            padding: "10px 20px",
+            backgroundImage: "linear-gradient(90deg, #a78bfa, #06b6d4)",
+            color: "#fff",
+            border: "none",
+            borderRadius: "25px",
+            cursor: "pointer",
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "20px",
+            fontSize: "16px",
+            marginLeft: 100,
+            textDecoration: "none", // remove underline
+          }}
+        >
+          👁️ View Resume
+        </a>
 
-      <div className="projectsView">
-        <p className="ProjectsText">Projects</p>
-        <p className="summary">
+        <button
+          style={{
+            padding: "10px 20px",
+            backgroundImage: "linear-gradient(90deg, #a78bfa, #06b6d4)",
+            color: "#fff",
+            border: "none",
+            borderRadius: "25px",
+            cursor: "pointer",
+            display: "flex",
+            alignItems: "center",
+            gap: "10px",
+            fontSize: "16px",
+            marginLeft: 60,
+          }}
+          onClick={() => {
+            const link = document.createElement("a");
+            link.href = "/Skresume.pdf";
+            link.download = "Resume.pdf";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+          }}
+        >
+          ⬇️ Download Resume
+        </button>
+      </div>
+
+      <div className="expertise-section single-column">
+        {expertiseData.map((card, index) => (
+          <div
+            key={index}
+            className={`expertise-card ${card.borderClass}`}
+            data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}
+          >
+            <div className="icon-wrapper" style={{ color: card.iconColor }}>
+              <FontAwesomeIcon icon={card.icon} size="2x" />
+            </div>
+            <h3 className="expertise-title">{card.title}</h3>
+            {card.image && (
+              <div className="card-image">
+                <img src={card.image} alt={card.title} />
+              </div>
+            )}
+            <p className="expertise-description">{card.description}</p>
+          </div>
+        ))}
+      </div>
+
+      <div className="projectsView1">
+        <p className="ProjectsText1">Projects</p>
+        <p className="summary1">
           Explore a showcase of my creative and innovative projects — from UI
           design to full-stack development — demonstrating how I bring ideas to
           life and contribute real value to every endeavor.
         </p>
+      </div>
 
-        <p className="MobileText">Mobile Projects</p>
-        <div className="NoofprojectsView1">
-  {projects.map((project, index) => (
-    <div className={`project-card1 ${project.borderClass}`} key={index}>
-      <div className="cardContent">
-        <img src={project.image} alt="Project" className="p1Image" />
+      <p className="MobileText">Mobile Projects</p>
+      <div className="mobileProjectsView">
+        <div className="mobileproject-card border-blue">
+          <div className="cardContent">
+            <img src={Employee} alt="Animated Developer" className="p1Image" />
 
-        <div className="cardText">
-          <h3 className="projectName">{project.title}</h3>
-          <p className="projectSummary">{project.summary}</p>
-          <p>Skills: {project.skills}</p>
+            <div className="cardText">
+              <h3 className="projectName">SC Employee App</h3>
+              <p className="projectSummary">
+                An all-in-one mobile solution designed for college management.
+                This app enables employees to check daily student attendance,
+                track employee presence, manage new admissions, and monitor
+                campus cleaning tasks. Built with React Native for Android, it
+                streamlines daily operations and enhances staff productivity
+                within the institution.
+              </p>
+              <p>Skills: Android, React Native(ios)</p>
 
-          <div className="buttons">
-            {project.liveLink && (
-              <a
-                href={project.liveLink}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <button className="btn1">Live</button>
-              </a>
-            )}
+              <div className="buttons">
+                <a
+                  href="https://play.google.com/store/apps/details?id=apps.srichaitanya.employee&pcampaignid=web_share"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button className="btn1">Live</button>
+                </a>
 
-            {project.githubLink ? (
-              <a
-                href={project.githubLink}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
                 <button className="btn2">GitHub</button>
-              </a>
-            ) : (
-              <button className="btn2">GitHub</button>
-            )}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="mobileproject-card border-green">
+          <div className="cardContent">
+            <img src={Parent} alt="Animated Developer" className="p1Image" />
+
+            <div className="cardText">
+              <h3 className="projectName">SC Parent App</h3>
+              <p className="projectSummary">
+                A dedicated mobile app for parents to stay connected with their
+                child’s academic journey. It provides real-time access to
+                student data including attendance, marks, performance reports,
+                fee details, and more. Designed with React Native for Android,
+                the app ensures transparent communication between parents and
+                the institution.
+              </p>
+              <p>Skills: Android, React Native(ios)</p>
+
+              <div className="buttons">
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.srichaitanya.parent&pcampaignid=web_share"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button className="btn1">Live</button>
+                </a>
+                <button className="btn2">GitHub</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="mobileproject-card border-purple">
+          <div className="cardContent">
+            <img src={GoogleMap} alt="Animated Developer" className="p1Image" />
+
+            <div className="cardText">
+              <h3 className="projectName">Google Map Directions</h3>
+              <p className="projectSummary">
+                A smart location-based tool that uses the Google Maps API to
+                provide real-time directions and calculate the distance between
+                two points. It supports route visualization, travel time
+                estimation, and multiple travel modes like driving, walking, or
+                transit.
+              </p>
+              <p>Skills: Android, React Native(ios)</p>
+              <div className="buttons">
+                <button className="btn1">Live</button>
+                <a
+                  href="https://github.com/Gunasaikrishna/StreetViewGoogleMap.git"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button className="btn2">GitHub</button>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  ))}
-</div>
 
+      <p className="MobileText">Web Projects</p>
+      <div className="webprojectsView">
+        <div className="webproject-card border-blue">
+          <img src={Chess} alt="Animated Developer" />
 
-        <p className="MobileText">Web Projects</p>
-        <div className="NoofprojectsView">
-        <div className="project-card border-blue">
-  <img src={Chess} alt="Animated Developer"  />
+          <h3 className="webprojectName mt-5">Chess AI</h3>
+          <p className="webprojectSummary">
+            An interactive chess game built using React JS that allows users to
+            play classic chess with a clean UI and responsive design. The game
+            supports all standard chess rules, legal move validation,
+            check/checkmate detection, and smooth gameplay transitions. Ideal
+            for practicing and enjoying chess in a web environment.
+          </p>
 
-  <h3 className='projectName'>Chess AI</h3>
-    <p className="projectSummary">An interactive chess game built using React JS that allows users to play classic chess with a clean UI and responsive design. The game supports all standard chess rules, legal move validation, check/checkmate detection, and smooth gameplay transitions. Ideal for practicing and enjoying chess in a web environment.</p>
+          <p>Skills: React JS</p>
+          <div className="liveBt">
+            <button className="webbtn1">Live</button>
 
-    <p>Skills: React JS</p>
-    <div className="liveBt">
-  <button className="webbtn1">Live</button>
+            <a
+              href="https://github.com/Gunasaikrishna/ChessGame.git"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="webbtn2"
+            >
+              GitHub
+            </a>
+          </div>
+        </div>
 
-  <a
-    href="https://github.com/Gunasaikrishna/ChessGame.git"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="webbtn2"
-  >
-    GitHub
-  </a>
-</div>
+        <div className="webproject-card border-green">
+          <img src={AI} alt="Animated Developer" />
+          <h3 className="webprojectName">Chat & Voice Assistnace AI </h3>
+          <p className="webprojectSummary">
+            A smart AI-powered assistant built with React JS, Python, and
+            FastAPI that mimics Google Assistant functionalities. It can respond
+            to user queries, perform tasks like weather updates, reminders, and
+            general Q&A using integrated AI and NLP capabilities. The assistant
+            provides real-time voice/text interaction, making it a handy tool
+            for productivity and learning.
+          </p>
 
-  </div>
+          <p>Skills: React JS ,Python ,Fast Api and SpeechRecognization</p>
+          <div className="liveBt">
+            <button className="webbtn1">Live </button>
 
-          <div className="project-card border-green">
-  <img src={AI} alt="Animated Developer"   />
-  <h3 className='projectName'>Chat & Voice Assistnace AI </h3>
-    <p className="projectSummary">A smart AI-powered assistant built with React JS, Python, and FastAPI that mimics Google Assistant functionalities. It can respond to user queries, perform tasks like weather updates, reminders, and general Q&A using integrated AI and NLP capabilities. The assistant provides real-time voice/text interaction, making it a handy tool for productivity and learning.</p>
+            <a
+              href="https://github.com/Gunasaikrishna/ChatBotGoogleAssistanceAI.git"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="webbtn2"
+            >
+              GitHub
+            </a>
+          </div>
+        </div>
 
-    <p>Skills: React JS ,Python ,Fast Api and SpeechRecognization</p>
-    <div className="liveBt">
-      <button className="webbtn1">Live </button>
+        <div className="webproject-card border-purple">
+          <img src={StudentForm} alt="Animated Developer" />
 
-      <a
-          href="https://github.com/Gunasaikrishna/ChatBotGoogleAssistanceAI.git"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                     className="webbtn2"
-                  >
-      GitHub
-      </a>
-    </div>
-  </div>
+          <h3 className="webprojectName">Student Details Form</h3>
+          <p className="webprojectSummary">
+            A modern and dynamic student information form built with React JS,
+            styled using CSS and JavaScript for interactivity. The form captures
+            detailed student data such as name, contact, address, and academic
+            background. It features real-time validation, state management, and
+            a responsive UI, making it ideal for digital admissions and academic
+            record-keeping systems.
+          </p>
 
-          <div className="project-card border-purple">
-  <img src={StudentForm} alt="Animated Developer" />
-
-    <h3 className='projectName'>Student Details Form</h3>
-    <p className="projectSummary">A modern and dynamic student information form built with React JS, styled using CSS and JavaScript for interactivity. The form captures detailed student data such as name, contact, address, and academic background. It features real-time validation, state management, and a responsive UI, making it ideal for digital admissions and academic record-keeping systems.</p>
-
-    <p>Skills: React Js, Spring Boot</p>
-    <div className="liveBt">
-
-      <a
-          href="https://srichaitanyaschool.net/users/login"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                          className="webbtn1"
-                  >
-                          Live
-
-                  </a>
-      {/* <button className="webbtn2">GitHub</button> */}
-
-      
-    </div>
-  </div>
+          <p>Skills: React Js, Spring Boot</p>
+          <div className="liveBt">
+            <a
+              href="https://srichaitanyaschool.net/users/login"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="webbtn1"
+            >
+              Live
+            </a>
+            {/* <button className="webbtn2">GitHub</button> */}
+          </div>
         </div>
       </div>
 
@@ -430,59 +457,114 @@ const handleSend = () => {
           personal website, where I share insights and innovative solutions.
         </p>
         <div className="techContainer">
-  <div className="techCard">
-  <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginTop: 20, marginBottom: 10 }}>
-  <SiTypescript style={{ color: '#3178c6', marginRight: 8, width: 30, height: 30  }} />
+          <div className="techCard">
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "center",
+                marginTop: 20,
+                marginBottom: 10,
+              }}
+            >
+              <SiTypescript
+                style={{
+                  color: "#3178c6",
+                  marginRight: 8,
+                  width: 30,
+                  height: 30,
+                }}
+              />
 
-    <p className="techTitle">
-      TypeScript & JavaScript
-    </p>
-    </div>
-    <p className="techDesc">
-      Proficient in JavaScript and TypeScript for writing clean,
-      maintainable code with enhanced developer productivity.
-    </p>
-  </div>
+              <p className="techTitle">TypeScript & JavaScript</p>
+            </div>
+            <p className="techDesc">
+              Proficient in JavaScript and TypeScript for writing clean,
+              maintainable code with enhanced developer productivity.
+            </p>
+          </div>
 
-  <div className="techCard">
-  <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginTop: 20, marginBottom: 10 }}>
-  <SiJavascript style={{ color: '#f7df1e',marginRight: 8, width: 30, height: 30 }} />
+          <div className="techCard">
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "center",
+                marginTop: 20,
+                marginBottom: 10,
+              }}
+            >
+              <SiJavascript
+                style={{
+                  color: "#f7df1e",
+                  marginRight: 8,
+                  width: 30,
+                  height: 30,
+                }}
+              />
 
-    <p className="techTitle">
-      UI / UX Design
-    </p>
-    </div>
-    <p className="techDesc">
-      Skilled in crafting intuitive and visually appealing user
-      experiences and interfaces that align with modern design
-      principles.
-    </p>
-  </div>
+              <p className="techTitle">UI / UX Design</p>
+            </div>
+            <p className="techDesc">
+              Skilled in crafting intuitive and visually appealing user
+              experiences and interfaces that align with modern design
+              principles.
+            </p>
+          </div>
 
-  <div className="techCard">
-  
-  <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginTop: 20, marginBottom: 10 }}>
-  <SiSpringboot style={{ color: '#61DAFB', marginRight: 8, width: 30, height: 30 }} />
+          <div className="techCard">
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "center",
+                marginTop: 20,
+                marginBottom: 10,
+              }}
+            >
+              <SiSpringboot
+                style={{
+                  color: "#61DAFB",
+                  marginRight: 8,
+                  width: 30,
+                  height: 30,
+                }}
+              />
 
-    <p className="techTitle">
-      
-      Spring Boot
-    </p>
-    </div>
-    <p className="techDesc">
-      Experience in building robust backend APIs and microservices using
-      Spring Boot, ensuring scalable and maintainable applications.
-    </p>
-  </div>
-</div>
+              <p className="techTitle">Spring Boot</p>
+            </div>
+            <p className="techDesc">
+              Experience in building robust backend APIs and microservices using
+              Spring Boot, ensuring scalable and maintainable applications.
+            </p>
+          </div>
+        </div>
 
         <div className="techContainer">
           <div className="techCard">
-          <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginTop: 20, marginBottom: 10 }}>
-          <SiKotlin style={{ color: '#7F52FF', marginRight: 8, width: 30, height: 30 }} />
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "center",
+                marginTop: 20,
+                marginBottom: 10,
+              }}
+            >
+              <SiKotlin
+                style={{
+                  color: "#7F52FF",
+                  marginRight: 8,
+                  width: 30,
+                  height: 30,
+                }}
+              />
 
-            <p className="techTitle">Java/Kotlin
-            </p>
+              <p className="techTitle">Java/Kotlin</p>
             </div>
             <p className="techDesc">
               Strong in object-oriented programming with Java, building scalable
@@ -491,10 +573,26 @@ const handleSend = () => {
           </div>
 
           <div className="techCard">
-          <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginTop: 20, marginBottom: 10 }}>
-  <SiPython style={{ color: '#3776AB', marginRight: 8, width: 30, height: 30 }} />
-  <p className="techTitle">Python</p>
-</div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "center",
+                marginTop: 20,
+                marginBottom: 10,
+              }}
+            >
+              <SiPython
+                style={{
+                  color: "#3776AB",
+                  marginRight: 8,
+                  width: 30,
+                  height: 30,
+                }}
+              />
+              <p className="techTitle">Python</p>
+            </div>
             <p className="techDesc">
               Versatile in Python for scripting, data processing, and backend
               development with clean and efficient coding practices.
@@ -502,10 +600,25 @@ const handleSend = () => {
           </div>
 
           <div className="techCard">
-          <div style={{ display: 'flex', flexDirection: 'row',  alignItems: 'center' , justifyContent:'center', marginTop:20, marginBottom:10}}>
-
-          <SiMysql style={{ color: '#00758F', marginRight: 8, width: 50, height: 50 }} />
-            <p className="techTitle">SQL</p>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "center",
+                marginTop: 20,
+                marginBottom: 10,
+              }}
+            >
+              <SiMysql
+                style={{
+                  color: "#00758F",
+                  marginRight: 8,
+                  width: 50,
+                  height: 50,
+                }}
+              />
+              <p className="techTitle">SQL</p>
             </div>
             <p className="techDesc">
               Strong understanding of relational databases and SQL for managing
@@ -516,10 +629,25 @@ const handleSend = () => {
 
         <div className="techContainer">
           <div className="techCard">
-          <div style={{ display: 'flex', flexDirection: 'row',  alignItems: 'center' , justifyContent:'center', marginTop:20, marginBottom:10}}>
-
-<SiReact style={{ color: '#61DAFB', marginRight: 8, width: 30, height: 30  }} />
-            <p className="techTitle">React JS</p>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "center",
+                marginTop: 20,
+                marginBottom: 10,
+              }}
+            >
+              <SiReact
+                style={{
+                  color: "#61DAFB",
+                  marginRight: 8,
+                  width: 30,
+                  height: 30,
+                }}
+              />
+              <p className="techTitle">React JS</p>
             </div>
             <p className="techDesc">
               Experienced in building dynamic web applications using React JS
@@ -528,11 +656,26 @@ const handleSend = () => {
           </div>
 
           <div className="techCard">
-          <div style={{ display: 'flex', flexDirection: 'row',  alignItems: 'center' , justifyContent:'center', marginTop:20, marginBottom:10}}>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "center",
+                marginTop: 20,
+                marginBottom: 10,
+              }}
+            >
+              <SiReact
+                style={{
+                  color: "#61DAFB",
+                  marginRight: 8,
+                  width: 30,
+                  height: 30,
+                }}
+              />
 
-          <SiReact style={{ color: '#61DAFB', marginRight: 8, width: 30, height: 30  }} />
-
-            <p className="techTitle">React Native</p>
+              <p className="techTitle">React Native</p>
             </div>
             <p className="techDesc">
               Developed cross-platform mobile apps using React Native, ensuring
@@ -541,18 +684,42 @@ const handleSend = () => {
           </div>
 
           <div className="techCard">
-          <div style={{ display: 'flex', flexDirection: 'row',  alignItems: 'center' , justifyContent:'center', marginTop:20, marginBottom:10}}>
-          <SiHtml5 style={{ color: '#e34c26', marginRight: 6, width: 30, height: 30 }} />
-  <SiCss3 style={{ color: '#1572b6', marginRight: 8, width: 30, height: 30 }} />
-  <p className="techTitle" style={{ margin: 0 }}>
-    HTML & CSS
-  </p>
-</div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "center",
+                marginTop: 20,
+                marginBottom: 10,
+              }}
+            >
+              <SiHtml5
+                style={{
+                  color: "#e34c26",
+                  marginRight: 6,
+                  width: 30,
+                  height: 30,
+                }}
+              />
+              <SiCss3
+                style={{
+                  color: "#1572b6",
+                  marginRight: 8,
+                  width: 30,
+                  height: 30,
+                }}
+              />
+              <p className="techTitle" style={{ margin: 0 }}>
+                HTML & CSS
+              </p>
+            </div>
 
             <p className="techDesc">
-    Solid foundation in HTML & CSS for structuring and styling web pages with responsive and accessible designs.
-  </p>
-</div>
+              Solid foundation in HTML & CSS for structuring and styling web
+              pages with responsive and accessible designs.
+            </p>
+          </div>
         </div>
       </div>
 
@@ -635,66 +802,66 @@ const handleSend = () => {
       </div>
 
       <div className="contact-wrapper">
-  <p className="ContactText">Contact Me</p>
-  <p className="summary">
-    Get in Touch: Let's Collaborate and Create Something Amazing Together
-  </p>
-
-  {/* Contact Info Section */}
-  <div className="contact-info">
-    <p className="contact-item">
-      📞  <a href="tel:+91 8297670197">Phone : +91 8297670197</a>
-    </p>
-    <p className="contact-item">
-      📧  <a href="mailto:agskannavarapu40002@gmail.com">agskannavarapu40002@gmail.com</a>
-    </p>
-  </div>
-
-  {/* Form */}
-  <input
-        type="text"
-        placeholder="Name"
-        className="input-field"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-
-      <input
-        type="number"
-        placeholder="Enter Mobile No"
-        className="input-field"
-        value={mobile}
-        onChange={(e) => setMobile(e.target.value)}
-      />
-
-      <textarea
-        placeholder="Message"
-        className="input-field message-field"
-        value={message}
-        onChange={(e) => setMessage(e.target.value)}
-      ></textarea>
-
-<div
-  onClick={()=>{
-    console.log("testing ");
-    handleSend();}}
-  className="touchable-button"
->
-  🚀 Send Message 
-</div>
-
-
-
-      {showSuccessText && (
-        <p style={{ marginTop: '10px', color: 'green' }}>
-          ✅ Message sent successfully. Saikrishna will reach you soon...😄
+        <p className="ContactText">Contact Me</p>
+        <p className="summary">
+          Get in Touch: Let's Collaborate and Create Something Amazing Together
         </p>
-      )}
-</div>
 
+        {/* Contact Info Section */}
+        <div className="contact-info">
+          <p className="contact-item">
+            📞 <a href="tel:+91 8297670197">Phone : +91 8297670197</a>
+          </p>
+          <p className="contact-item">
+            📧{" "}
+            <a href="mailto:agskannavarapu40002@gmail.com">
+              agskannavarapu40002@gmail.com
+            </a>
+          </p>
+        </div>
+
+        {/* Form */}
+        <input
+          type="text"
+          placeholder="Name"
+          className="input-field"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+
+        <input
+          type="number"
+          placeholder="Enter Mobile No"
+          className="input-field"
+          value={mobile}
+          onChange={(e) => setMobile(e.target.value)}
+        />
+
+        <textarea
+          placeholder="Message"
+          className="input-field message-field"
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+        ></textarea>
+
+        <div
+          onClick={() => {
+            console.log("testing ");
+            handleSend();
+          }}
+          className="touchable-button"
+        >
+          🚀 Send Message
+        </div>
+
+        {showSuccessText && (
+          <p style={{ marginTop: "10px", color: "green" }}>
+            ✅ Message sent successfully. Saikrishna will reach you soon...😄
+          </p>
+        )}
+      </div>
     </div>
   );
 };
 
 export default Home;
-

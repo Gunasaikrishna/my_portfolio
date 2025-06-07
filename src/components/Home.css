@@ -119,7 +119,7 @@
     color: white;
     font-size: 34px;
     font-weight: 700;
-    margin-left: 28px;
+    margin-left: 20px;
     margin-bottom: 10px;
   }
 
@@ -167,6 +167,7 @@
 .projectName{
   font-size: large;
   font-family: "bold";
+  color: #f3f4f6;
 }
 .NoofprojectsView {
     display: flex;
@@ -588,3 +589,233 @@
   .touchable-button:active {
     opacity: 0.6; /* TouchableOpacity-like effect */
   }
+
+
+  .projectsView1 {
+    width: 100%;
+    max-width: 1440px; /* optional, for desktop limit */
+    margin: 0 ;
+    padding: 40px 20px;
+  }
+  .summary1{
+    color: grey;
+    margin-left: 28px;
+    font-family: 'Poppins', sans-serif;
+} 
+ .ProjectsText1 {
+    font-size: 44px;
+    font-weight: 700;
+    margin-left: 28px;
+    background: linear-gradient(90deg, #e8e7ec, #06b6d4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+
+    
+
+  .mobileProjectsView {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+    margin-left: 20px;
+     margin-top: 0px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+  }
+  .mobileproject-card {
+    width: 100%;
+ 
+    margin-top: 0px;
+    border-radius: 10px;
+    background-color: #040000;
+    color: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  .cardContent {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: flex-start;
+    flex-wrap: wrap; /* Allow wrapping on smaller widths */
+  }
+  
+  
+  .p1Image {
+    width: 150px;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+  
+  
+  .cardText {
+    flex: 1;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  
+  .border-blue {
+    border: 2px solid #3b82f6;
+  }
+  .border-green {
+    border: 2px solid #10b981;
+  }
+  .border-purple {
+    border: 2px solid #a78bfa;
+  }
+  
+ 
+  
+  .buttons {
+    display: flex;
+    flex-direction: column; /* ⬅️ This stacks them vertically */
+    gap: 10px;
+    margin-top: 15px;
+    height: auto; /* Let height adjust based on content */
+    width: 150px;
+    
+  }
+  .btn1{
+    width: 100%;
+    background-color: #10b981;
+  }
+  .btn2 {
+    width: 100%;
+    background-color: #000a07;
+  }
+  
+  .btn:hover {
+    background-color: #374151;
+  }
+ 
+  @media (max-width: 768px) {
+    .mobileProjectsView {
+      flex-direction: column;
+      margin-left: 10px;
+      margin-right: 10px;
+      gap: 20px;
+    }
+  
+    .cardContent {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .p1Image,
+    .buttons {
+      display: none;
+      border-width: 1;
+      border-color: #10b981;
+    }
+  
+    .projectSummary {
+      display: -webkit-box;
+      -webkit-line-clamp: 2; /* show only 2 lines */
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;font-family: 'Poppins', sans-serif;
+    }
+  }
+
+  .webprojectsView {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 5px;
+    box-sizing: border-box;
+  }
+  .webproject-card {
+    flex: 1 1 300px; /* Allow flexible sizing */
+    max-width: 100%;
+    min-width: 280px;
+    border-radius: 10px;
+    background-color: rgb(1, 1, 1);
+    color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    padding: 16px;
+    border: 2px solid transparent; /* for colored border */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+   
+    .webprojectName{
+      font-size: large;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #f3f3f5, #fafbfc); /* Indigo to cyan */
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;font-weight: bold;
+    }
+    .webprojectSummary {
+      color: grey;
+      font-size: 14px;
+      line-height: 1.5;
+      margin-top: 10px;
+      font-family: "bold";font-family: 'Poppins', sans-serif;
+    }
+    
+  .liveBt {
+    display: flex;
+    gap: 10px;
+    margin-top: 5px;
+    height: 50px;
+  }
+  /* .webbtn1,
+  .webbtn2 {
+    flex: 1;
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    border-radius: 50px;
+    transition: background-color 0.3s;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  } */
+   
+   
+   
+   
+  @media (max-width: 768px) {
+    .webproject-card img {
+      display: none;
+    }
+   
+    .webprojectSummary {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;font-family: 'Poppins', sans-serif;
+    }
+   
+    .webproject-card {
+      padding: 12px;
+    }
+   
+    .webprojectName {
+      font-size: 18px;
+    }
+   
+    .liveBt {
+      flex-direction: column;
+      height: auto;
+    }
+   
+    .webbtn1,
+    .webbtn2 {
+      width: 100%;
+    }
+  }
+ 
