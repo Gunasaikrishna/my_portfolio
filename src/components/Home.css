@@ -572,3 +572,19 @@
     text-decoration: underline;
   }
   
+  .touchable-button {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    font-weight: bold;
+    transition: opacity 0.2s ease-in-out;
+    user-select: none;
+    display: inline-block;
+  }
+  
+  .touchable-button:active {
+    opacity: 0.6; /* TouchableOpacity-like effect */
+  }

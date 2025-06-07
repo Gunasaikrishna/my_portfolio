@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Home.css";
 import devImage from "../assets/profilesk2.jpeg";
 import GoogleMap from "../assets/googleMap.jpeg";
@@ -30,8 +30,21 @@ import {
   SiHtml5,
   SiCss3
 } from "react-icons/si";
+import axios from 'axios';
+
+import { initializeApp } from "firebase/app";
+import { getDatabase, push, ref } from "firebase/database";
+import { firebaseConfig } from "./firebaseConfig";
+ 
 
 const Home = () => {
+
+  const [name, setName] = useState('');
+  const [mobile, setMobile] = useState('');
+  const [message, setMessage] = useState('');
+  const [showSuccessText, setShowSuccessText] = useState(false); // state to control <p> visibility
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -123,6 +136,67 @@ const projects = [
     borderClass: "border-green",
   },
 ];
+
+// const handleSend = async () => {
+//   const fullMessage = `Name: ${name}\nMobile: ${mobile}\nMessage: ${message}`;
+
+//   const payload = {
+//     message: fullMessage
+//   };
+
+//   try {
+//     const response = await axios.post(
+//       'https://8n2aepx5c1.execute-api.eu-north-1.amazonaws.com/Send',
+//       payload,
+//       {
+//         headers: {
+//           'Content-Type': 'application/json'
+//         }
+//       }
+//     );
+
+//     console.log("✅ API success:", response.data);
+
+//     setShowSuccessText(true);
+
+//     // Optionally clear the form
+//     setName('');
+//     setMobile('');
+//     setMessage('');
+//   } catch (error) {
+//     console.error("❌ API error:", error.response ? error.response.data : error.message);
+//     setShowSuccessText(false);
+//   }
+// };
+const handleSend = () => {
+
+  if (!name.trim() || !mobile.trim() || !message.trim()) {
+    alert("Please fill in all fields.");
+    return;
+  }
+  console.log("  handleSend ")
+  // console.log('Data saved successfully11'); // <-- check browser console
+
+  push(ref(db, 'submissions/'), {
+    name,
+    mobile,
+    message,
+    timestamp: new Date().toISOString(),
+  })
+    .then(() => {
+      setShowSuccessText(true);
+    console.log('Data saved successfully'); // <-- check browser console
+
+      setName('');
+      setMobile('');
+      setMessage('');
+      setTimeout(() => setShowSuccessText(false), 5000);
+    })
+    .catch((error) => {
+      console.error('Error sending message:', error);
+    });
+};
+
 
   return (
     <div className="overallDiv">
@@ -577,14 +651,45 @@ const projects = [
   </div>
 
   {/* Form */}
-  {/* <input type="text" placeholder="Name" className="input-field" />
-  <input type="number" placeholder="Enter Mobile No" className="input-field" />
-  <textarea
-    placeholder="Message"
-    className="input-field message-field"
-  ></textarea>
+  <input
+        type="text"
+        placeholder="Name"
+        className="input-field"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
 
-  <button className="send-button">Send Message</button> */}
+      <input
+        type="number"
+        placeholder="Enter Mobile No"
+        className="input-field"
+        value={mobile}
+        onChange={(e) => setMobile(e.target.value)}
+      />
+
+      <textarea
+        placeholder="Message"
+        className="input-field message-field"
+        value={message}
+        onChange={(e) => setMessage(e.target.value)}
+      ></textarea>
+
+<div
+  onClick={()=>{
+    console.log("testing ");
+    handleSend();}}
+  className="touchable-button"
+>
+  🚀 Send Message 
+</div>
+
+
+
+      {showSuccessText && (
+        <p style={{ marginTop: '10px', color: 'green' }}>
+          ✅ Message sent successfully. Saikrishna will reach you soon...😄
+        </p>
+      )}
 </div>
 
     </div>
